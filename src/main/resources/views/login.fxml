@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wisewallet.controllers.LoginController">
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="360.0" style="-fx-background-color: eee9dd;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="163.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Lock.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="36.0" layoutY="130.0" text="Username">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="190.0" text="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" layoutX="134.0" layoutY="128.0" prefHeight="25.0" prefWidth="180.0" promptText="Username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordField" layoutX="134.0" layoutY="188.0" prefHeight="25.0" prefWidth="180.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="loginButton" layoutX="32.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="44.0" prefWidth="296.0" text="Login" />
+            <Button fx:id="cancelButton" layoutX="32.0" layoutY="328.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="44.0" prefWidth="296.0" text="Cancel" />
+            <Label fx:id="errorMessage" alignment="CENTER" layoutX="32.0" layoutY="233.0" prefHeight="27.0" prefWidth="298.0" text="Invalid Login. Please try again." textFill="RED" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="240.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/WiseWalletLogin.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
