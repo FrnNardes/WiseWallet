@@ -1,4 +1,4 @@
-package com.wisewallet.vision;
+package com.wisewallet;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class MainApplication extends Application {
     @Override
-    public void start(@SuppressWarnings("exports") Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login.fxml"));
         Scene scene = new Scene(loader.load());
         primaryStage.setTitle("Login - Controle de Finanças");

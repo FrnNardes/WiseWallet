@@ -6,6 +6,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 
 public class LoginController {
@@ -23,15 +26,15 @@ public class LoginController {
     private Label errorMessage;
 
     @FXML
-    private void loginButtonAction(){
+    private void loginButtonAction(ActionEvent event) throws IOException{
         String username = usernameField.getText();
         String password = passwordField.getText();
 
         if(username.equals("admin") && password.equals("1234")){
             errorMessage.setVisible(false);
-            System.out.println("Login bem-sucedido!");
+            SceneController sc = new SceneController();
+            sc.switchToScene3(event);
         } else {
-            // Login falhou
             errorMessage.setVisible(true);
         }
     }
