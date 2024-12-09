@@ -30,7 +30,11 @@ public class LoginController extends BaseController{
 
         if(username.equals("admin") && password.equals("1234")){
             errorMessage.setVisible(false);
-            System.out.println("Login bem-sucedido!");
+            try{
+                mainApp.showDashboardPage();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
         } else {
             // Login falhou
             errorMessage.setVisible(true);
