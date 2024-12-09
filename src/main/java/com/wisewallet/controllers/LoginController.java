@@ -1,14 +1,12 @@
 package com.wisewallet.controllers;
 
+import com.sun.tools.javac.Main;
+import com.wisewallet.vision.MainApplication;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
-public class LoginController {
+public class LoginController extends BaseController{
 
     @FXML
     private Button cancelButton;
@@ -21,6 +19,9 @@ public class LoginController {
 
     @FXML
     private Label errorMessage;
+
+    @FXML
+    private Hyperlink registerLink;
 
     @FXML
     private void loginButtonAction(){
@@ -36,8 +37,16 @@ public class LoginController {
         }
     }
 
-    public void cancelButtonAction(ActionEvent event){
+    public void cancelButtonAction(){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
+    }
+
+    public void registerLinkAction(){
+        try {
+            mainApp.showRegistrationPage();  // Chama o metodo da MainApplication para abrir a página de registro
+        } catch (Exception e) {
+            e.printStackTrace();  // Lida com exceções, caso ocorram
+        }
     }
 }

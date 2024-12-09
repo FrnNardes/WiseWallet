@@ -4,6 +4,7 @@ module WiseWallet {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires jdk.compiler;
 
     opens com.wisewallet.controllers to javafx.fxml;  // Permite acesso a esse pacote para o FXMLLoader
     exports com.wisewallet.vision;
