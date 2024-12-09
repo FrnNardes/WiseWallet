@@ -1,3 +1,5 @@
+package com.wisewallet.modules;
+
 public class Receitas {
     private String nomeReceita;
     private double valor;

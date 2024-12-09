@@ -1,4 +1,4 @@
-package com.wisewallet;
+package com.wisewallet.vision;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
