@@ -1,0 +1,2 @@
+TextField[id=nameField, styleClass=text-input text-field]:TextField[id=lastnameField, styleClass=text-input text-field]:TextField[id=usernameField, styleClass=text-input text-field]:PasswordField[id=passwordField, styleClass=text-input text-field password-field]
+TextField[id=nameField, styleClass=text-input text-field]:TextField[id=lastnameField, styleClass=text-input text-field]:TextField[id=usernameField, styleClass=text-input text-field]:PasswordField[id=passwordField, styleClass=text-input text-field password-field]

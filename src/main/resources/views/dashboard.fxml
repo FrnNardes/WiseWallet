@@ -2,6 +2,11 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
@@ -11,46 +16,42 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wisewallet.controllers.DashboardController">
    <left>
-      <AnchorPane prefHeight="768.0" prefWidth="49.0" styleClass="sidebar" stylesheets="@../style/stylesheet.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="768.0" prefWidth="49.0" stylesheets="@../style/stylesheet.css" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIconView glyphName="BARS" layoutX="19.0" layoutY="25.0" size="2.5em" text="" wrappingWidth="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
             <VBox layoutX="10.0" layoutY="269.0" prefHeight="174.0" prefWidth="35.0">
                <children>
-                  <FontAwesomeIconView fill="#c1c1c1" glyphName="BANK" size="2.5em" text="">
+                  <FontAwesomeIconView glyphName="HOME" layoutX="10.0" layoutY="36.0" size="2.5em" text="">
                      <VBox.margin>
-                        <Insets top="35.0" />
+                        <Insets left="3.0" top="35.0" />
                      </VBox.margin>
                   </FontAwesomeIconView>
-                  <FontAwesomeIconView fill="#eb990b" glyphName="HOME" layoutX="10.0" layoutY="36.0" size="2.5em" text="">
+                  <FontAwesomeIconView fill="#b2b2b2" glyphName="PLUS" size="2.5em" text="" wrappingWidth="23.571428298950195">
                      <VBox.margin>
-                        <Insets top="35.0" />
+                        <Insets bottom="35.0" left="5.0" top="35.0" />
                      </VBox.margin>
-                  </FontAwesomeIconView>
-                  <FontAwesomeIconView fill="#c1c1c1" glyphName="IMAGE" layoutX="10.0" layoutY="66.0" size="2.5em">
-                     <VBox.margin>
-                        <Insets bottom="35.0" top="35.0" />
-                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
                   </FontAwesomeIconView>
                </children>
             </VBox>
-            <FontAwesomeIconView glyphName="GEAR" layoutX="16.0" layoutY="695.0" size="2.5em" text="" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-            <Circle fill="#ffffff00" layoutX="28.0" layoutY="734.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+            <FontAwesomeIconView glyphName="GEAR" layoutX="15.0" layoutY="749.0" size="2.5em" text="" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.285715103149414" />
          </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin></AnchorPane>
    </left>
    <center>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="978.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="48.0" prefHeight="285.0" prefWidth="888.0" style="-fx-background-color: #FFFFFF;" styleClass="pane" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="32.0">
+            <VBox layoutX="48.0" prefHeight="291.0" prefWidth="888.0" style="-fx-background-color: #FFFFFF;" styleClass="pane" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="32.0">
                <children>
-                  <HBox prefHeight="48.0" prefWidth="886.0">
+                  <HBox prefHeight="66.0" prefWidth="886.0">
                      <children>
                         <Label text="Dashboard" textFill="#ffa400">
                            <font>
@@ -72,7 +73,7 @@
                               <Insets bottom="10.0" left="5.0" top="10.0" />
                            </HBox.margin>
                         </Separator>
-                        <Label layoutX="20.0" layoutY="20.0" text="Olá, seja bem-vindo!" textFill="#232528">
+                        <Label fx:id="usernameLabel" layoutX="20.0" layoutY="20.0" text="Olá, seja bem-vindo!" textFill="#232528">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
@@ -82,9 +83,20 @@
                         </Label>
                      </children>
                   </HBox>
+                  <AnchorPane>
+                     <CategoryAxis layoutX="50" layoutY="250" fx:id="xAxis" />
+
+                     <!-- Eixo Y (Valores numéricos) para o BarChart -->
+                     <NumberAxis fx:id="yAxis" layoutX="50" layoutY="250" />
+
+                     <!-- BarChart (Gráfico de Barras) -->
+                     <BarChart fx:id="barChart" horizontalGridLinesVisible="false" layoutX="-1.0" layoutY="3.0" prefHeight="223.0" prefWidth="884.0" title="Evolução por Mês" xAxis="$xAxis" yAxis="$yAxis">
+                        <!-- As barras serão configuradas no controlador -->
+                     </BarChart>
+                  </AnchorPane>
                </children>
             </VBox>
-            <VBox layoutX="47.0" layoutY="424.0" prefHeight="344.0" prefWidth="890.0">
+            <VBox layoutX="47.0" layoutY="359.0" prefHeight="344.0" prefWidth="890.0">
                <children>
                   <HBox prefHeight="48.0" prefWidth="886.0" stylesheets="@../style/stylesheet.css">
                      <children>
@@ -98,7 +110,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <SplitPane dividerPositions="0.25" prefHeight="292.0" prefWidth="890.0">
+                  <SplitPane dividerPositions="0.26576576576576577" prefHeight="292.0" prefWidth="890.0" styleClass="parent">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
@@ -112,7 +124,7 @@
                                           <Insets bottom="50.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="91.0" text="Saidas:" textFill="#ae0202">
+                                    <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="91.0" text="Saidas:" textFill="#c30000">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -149,13 +161,52 @@
                                     </FontAwesomeIconView>
                                  </children>
                               </VBox>
-                              <Separator layoutX="10.0" layoutY="174.0" prefHeight="11.0" prefWidth="199.0" />
-                              <Separator layoutX="10.0" layoutY="99.0" prefHeight="11.0" prefWidth="199.0" />
+                              <Separator layoutX="10.0" layoutY="181.0" prefHeight="11.0" prefWidth="199.0" />
+                              <Separator layoutX="10.0" layoutY="106.0" prefHeight="11.0" prefWidth="199.0" />
                               <Separator layoutX="10.0" layoutY="254.0" prefHeight="11.0" prefWidth="199.0" />
                               <Separator layoutX="10.0" layoutY="29.0" prefHeight="11.0" prefWidth="199.0" />
+                              <FontAwesomeIconView fx:id="addIncomeButton" fill="#139a31" glyphName="PLUS" layoutX="190.0" layoutY="57.0" onMouseClicked="#addIncomePage" selectionFill="#e83030" size="1.5em" text="" />
+                              <FontAwesomeIconView fx:id="addExpenseButton" fill="#c30000" glyphName="PLUS" layoutX="190.0" layoutY="134.0" onMouseClicked="#addExpensePage" selectionFill="#e40000" size="1.5em" text="" />
+                              <Label layoutX="13.0" layoutY="73.0" prefHeight="27.0" prefWidth="28.0" text="R$">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="13.0" layoutY="145.0" prefHeight="27.0" prefWidth="27.0" text="R$">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="13.0" layoutY="218.0" prefHeight="27.0" prefWidth="27.0" text="R$">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="incomeLabel" layoutX="40.0" layoutY="73.0" prefHeight="27.0" prefWidth="170.0" text="0.00">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="expenseLabel" layoutX="40.0" layoutY="145.0" prefHeight="27.0" prefWidth="170.0" text="0.00">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalLabel" layoutX="40.0" layoutY="218.0" prefHeight="27.0" prefWidth="170.0" text="1000000">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <VBox layoutX="30.0" layoutY="25.0" prefHeight="240.0" prefWidth="595.0">
+                                 <children>
+                                    <PieChart fx:id="pieChart" labelsVisible="false" prefHeight="240.0" prefWidth="192.0" style="-fx-background-color: #1111111;" title="Entrada/Saída" />
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
                     </items>
                   </SplitPane>
                </children>

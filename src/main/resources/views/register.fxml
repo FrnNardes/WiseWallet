@@ -43,7 +43,7 @@
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="registerButton" layoutX="35.0" layoutY="451.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="330.0" text="Cadastre-se" />
+                  <Button fx:id="registerButton" layoutX="35.0" layoutY="451.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="44.0" prefWidth="330.0" text="Cadastre-se" />
                   <Button fx:id="cancelButton" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="524.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="44.0" prefWidth="330.0" text="Cancelar" />
                   <Text layoutX="119.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de usuário">
                      <font>
@@ -55,17 +55,17 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="passwordField1" layoutX="35.0" layoutY="386.0" prefHeight="30.0" prefWidth="330.0" promptText="Password">
+                  <PasswordField fx:id="confirmPasswordField" layoutX="35.0" layoutY="386.0" prefHeight="30.0" prefWidth="330.0" promptText="Password">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <TextField fx:id="usernameField1" layoutX="35.0" layoutY="188.0" prefHeight="30.0" prefWidth="330.0" promptText="Username">
+                  <TextField fx:id="lastnameField" layoutX="35.0" layoutY="188.0" prefHeight="30.0" prefWidth="330.0" promptText="Username">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="usernameField11" layoutX="35.0" layoutY="124.0" prefHeight="30.0" prefWidth="330.0" promptText="Username">
+                  <TextField fx:id="nameField" layoutX="35.0" layoutY="124.0" prefHeight="30.0" prefWidth="330.0" promptText="Username">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -80,6 +80,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
+                  <Label fx:id="registerErrorLabel" layoutX="35.0" layoutY="426.0" text="Por favor, preencha todos os campos!" textFill="#f50000" visible="false" />
                </children>
             </AnchorPane>
          </children></VBox>
