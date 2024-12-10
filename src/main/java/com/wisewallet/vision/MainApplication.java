@@ -29,7 +29,7 @@ public class MainApplication extends Application {
         // Passa a referência de MainApplication para o controlador
         loginController.setMainApp(this);
 
-        primaryStage.setTitle("Login - Controle de Finanças");
+        primaryStage.setTitle("Login - WISEWALLET");
         primaryStage.setResizable(false);
         primaryStage.setScene(loginScene);
         primaryStage.centerOnScreen();
@@ -45,7 +45,7 @@ public class MainApplication extends Application {
 
         // Passa a referência de MainApplication para o controlador
         registerController.setMainApp(this);
-        primaryStage.setTitle("Registro - Controle de Finanças");
+        primaryStage.setTitle("Registro - WISEWALLET");
         primaryStage.setResizable(false);
         primaryStage.setScene(registrationScene);
         primaryStage.centerOnScreen();
@@ -56,7 +56,7 @@ public class MainApplication extends Application {
     public void showDashboardPage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dashboard.fxml"));
         Scene dashboardScene = new Scene(loader.load());
-        primaryStage.setTitle("Dashboard - Controle de Finanças");
+        primaryStage.setTitle("Dashboard - WISEWALLET");
         primaryStage.setResizable(false);
         primaryStage.setScene(dashboardScene);
         primaryStage.centerOnScreen();

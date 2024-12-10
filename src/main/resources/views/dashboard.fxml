@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,9 +14,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <AnchorPane prefHeight="768.0" prefWidth="49.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="768.0" prefWidth="49.0" styleClass="sidebar" stylesheets="@../style/stylesheet.css" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIconView glyphName="BARS" layoutX="19.0" layoutY="25.0" size="2.5em" text="" wrappingWidth="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
             <VBox layoutX="10.0" layoutY="269.0" prefHeight="174.0" prefWidth="35.0">
@@ -71,7 +72,7 @@
                               <Insets bottom="10.0" left="5.0" top="10.0" />
                            </HBox.margin>
                         </Separator>
-                        <Label layoutX="20.0" layoutY="20.0" text="Olá {nome}, seja bem-vindo!" textFill="#232528">
+                        <Label layoutX="20.0" layoutY="20.0" text="Olá, seja bem-vindo!" textFill="#232528">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
@@ -85,7 +86,7 @@
             </VBox>
             <VBox layoutX="47.0" layoutY="424.0" prefHeight="344.0" prefWidth="890.0">
                <children>
-                  <HBox prefHeight="48.0" prefWidth="886.0">
+                  <HBox prefHeight="48.0" prefWidth="886.0" stylesheets="@../style/stylesheet.css">
                      <children>
                         <Label layoutX="20.0" layoutY="20.0" text="Resumo mensal" textFill="#232528">
                            <font>
@@ -97,6 +98,66 @@
                         </Label>
                      </children>
                   </HBox>
+                  <SplitPane dividerPositions="0.25" prefHeight="292.0" prefWidth="890.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <VBox layoutX="49.0" layoutY="40.0" prefHeight="211.0" prefWidth="70.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="91.0" text="Entradas:" textFill="#139a31">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="91.0" text="Saidas:" textFill="#ae0202">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="91.0" text="TOTAL:" textFill="#139a31">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="14.0" layoutY="40.0" prefHeight="211.0" prefWidth="27.0">
+                                 <children>
+                                    <FontAwesomeIconView glyphName="ARROW_UP" size="2em">
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </FontAwesomeIconView>
+                                    <FontAwesomeIconView glyphName="ARROW_DOWN" layoutX="10.0" layoutY="31.0" size="2em">
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </FontAwesomeIconView>
+                                    <FontAwesomeIconView glyphName="BARS" layoutX="10.0" layoutY="117.0" size="2em">
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </FontAwesomeIconView>
+                                 </children>
+                              </VBox>
+                              <Separator layoutX="10.0" layoutY="174.0" prefHeight="11.0" prefWidth="199.0" />
+                              <Separator layoutX="10.0" layoutY="99.0" prefHeight="11.0" prefWidth="199.0" />
+                              <Separator layoutX="10.0" layoutY="254.0" prefHeight="11.0" prefWidth="199.0" />
+                              <Separator layoutX="10.0" layoutY="29.0" prefHeight="11.0" prefWidth="199.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                    </items>
+                  </SplitPane>
                </children>
             </VBox>
          </children>
