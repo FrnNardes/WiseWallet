@@ -1,3 +1,4 @@
-frn|Entradas:100.0,1500.0|Saidas:85.0
-f|Entradas:123.0|Saidas:50.0
-1|Entradas:123.0,123.0,123.0,246.0,369.0,492.0,123.0,123.0,123.0,123.0,123.0,123.0,123.0|Saidas:123.0,12.0,123.0,123.0,123.0,23.0,1.0,23.0
+
+1|Entradas:100.0|Saidas:147.0
+a|Entradas:123.0|Saidas:50.0
+Maisa|Entradas:100.0|Saidas:40.0
