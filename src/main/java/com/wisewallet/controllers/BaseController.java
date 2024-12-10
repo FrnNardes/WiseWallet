@@ -5,7 +5,6 @@ import com.wisewallet.vision.MainApplication;
 
 public abstract class BaseController {
     protected MainApplication mainApp;
-    protected Account mainAccount;
 
     public void setMainApp(MainApplication mainApp){
         this.mainApp = mainApp;

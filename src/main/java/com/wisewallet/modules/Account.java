@@ -113,6 +113,7 @@ public class Account {
         }
     }
 
+
     private String entradasToString() {
         return String.join(",", entradas.stream().map(String::valueOf).toArray(String[]::new));
     }

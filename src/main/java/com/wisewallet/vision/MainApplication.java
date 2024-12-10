@@ -49,7 +49,7 @@ public class MainApplication extends Application {
     }
 
     // Metodo para mostrar a tela do dashboard
-    public void showDashboardPage() throws Exception {
+    public FXMLLoader showDashboardPage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dashboard.fxml"));
         Scene dashboardScene = new Scene(loader.load());
 
@@ -61,6 +61,8 @@ public class MainApplication extends Application {
         primaryStage.setScene(dashboardScene);
         primaryStage.centerOnScreen();
         primaryStage.show();
+
+        return loader;
     }
 
     public FXMLLoader showAddIncomePage() throws Exception {
@@ -81,6 +83,22 @@ public class MainApplication extends Application {
         Scene addIncomeScene = new Scene(loader.load());
 
         secondaryStage.setTitle("Add Expense - WISEWALLET");
+        secondaryStage.setResizable(false);
+        secondaryStage.setScene(addIncomeScene);
+        secondaryStage.centerOnScreen();
+        secondaryStage.show();
+
+        return loader;
+    }
+
+    public FXMLLoader showIncomeExpenseView() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/incomeExpensesView.fxml"));
+        Scene addIncomeScene = new Scene(loader.load());
+
+        IncomeExpenseViewController incomeExpenseViewController = loader.getController();
+        incomeExpenseViewController.setMainApp(this);
+
+        secondaryStage.setTitle("Income/Expense - WISEWALLET");
         secondaryStage.setResizable(false);
         secondaryStage.setScene(addIncomeScene);
         secondaryStage.centerOnScreen();

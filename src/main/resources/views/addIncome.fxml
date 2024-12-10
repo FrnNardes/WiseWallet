@@ -6,18 +6,27 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wisewallet.controllers.AddIncomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wisewallet.controllers.AddIncomeController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="142.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="incomeValue" layoutX="14.0" layoutY="79.0" onKeyPressed="#addIncome" />
-            <Label layoutX="14.0" layoutY="14.0" text="ADICIONAR ENTRADA">
+            <TextField fx:id="incomeValue" layoutX="41.0" layoutY="39.0" onKeyPressed="#addIncome" prefHeight="25.0" prefWidth="115.0" />
+            <Label layoutX="59.0" layoutY="7.0" text="VALOR:">
                <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="62.0" text="VALOR:" />
+                  <Font name="System Bold" size="22.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <AnchorPane prefHeight="72.0" prefWidth="400.0" style="-fx-background-color: #7DC95E;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="5.0" layoutY="23.0" prefHeight="27.0" prefWidth="193.0" text="ADICIONAR ENTRADA">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>

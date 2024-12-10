@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wisewallet.controllers.IncomeExpenseViewController">
+   <left>
+      <AnchorPane prefHeight="768.0" prefWidth="49.0" stylesheets="@../style/stylesheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIconView glyphName="BARS" layoutX="19.0" layoutY="25.0" size="2.5em" text="" wrappingWidth="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+            <VBox layoutX="10.0" layoutY="269.0" prefHeight="174.0" prefWidth="35.0">
+               <children>
+                  <FontAwesomeIconView fx:id="dashboardButton" fill="#b2b2b2" glyphName="HOME" layoutX="10.0" layoutY="36.0" onMouseClicked="#dashboardButtonAction" size="2.5em" text="">
+                     <VBox.margin>
+                        <Insets left="3.0" top="35.0" />
+                     </VBox.margin>
+                  </FontAwesomeIconView>
+                  <FontAwesomeIconView fx:id="incomeExpenseViewButton" glyphName="PLUS" size="2.5em" text="" wrappingWidth="23.571428298950195">
+                     <VBox.margin>
+                        <Insets bottom="35.0" left="5.0" top="35.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </FontAwesomeIconView>
+               </children>
+            </VBox>
+            <FontAwesomeIconView glyphName="GEAR" layoutX="15.0" layoutY="749.0" size="2.5em" text="" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.285715103149414" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="978.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="48.0" prefHeight="50.0" prefWidth="888.0" style="-fx-background-color: #FFFFFF;" styleClass="pane" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="32.0">
+               <children>
+                  <HBox prefHeight="52.0" prefWidth="666.0">
+                     <children>
+                        <Label fx:id="incomeLabel" alignment="CENTER" prefHeight="52.0" prefWidth="430.0" text="Entradas" textFill="#ffa400">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <effect>
+                              <Lighting diffuseConstant="1.23" light="$null" specularConstant="0.0" surfaceScale="0.0">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="84.0" prefWidth="411.0" text="Saídas" textAlignment="CENTER" textFill="#ffa400">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="47.0" layoutY="359.0" prefHeight="344.0" prefWidth="890.0" />
+            <AnchorPane layoutX="48.0" layoutY="65.0" prefHeight="701.0" prefWidth="885.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" prefHeight="702.0" prefWidth="886.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ScrollPane layoutX="-1.0" layoutY="-2.0" prefHeight="703.0" prefWidth="440.0">
+                                 <content>
+                                    <TextArea fx:id="incomeTextArea" prefHeight="694.0" prefWidth="435.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="697.0" prefWidth="618.0">
+                           <children>
+                              <ScrollPane prefHeight="700.0" prefWidth="440.0">
+                                 <content>
+                                    <TextArea fx:id="expenseTextArea" prefHeight="698.0" prefWidth="437.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

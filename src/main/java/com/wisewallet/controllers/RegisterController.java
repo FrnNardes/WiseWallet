@@ -31,17 +31,15 @@ public class RegisterController extends BaseController{
     private PasswordField confirmPasswordField;
 
     @FXML
-    private Button cancelButton;
-
-    @FXML
-    private Button registerButton;
-
-    @FXML
     private Label registerErrorLabel;
 
     public void registerButtonAction() {
         if(nameField.getText().isEmpty() || lastnameField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || confirmPasswordField.getText().isEmpty()) {
             registerErrorLabel.setVisible(true);
+            registerErrorLabel.setText("Por favor, preencha todos os campos!");
+        } else if(!passwordField.getText().equals(confirmPasswordField.getText())) {
+            registerErrorLabel.setVisible(true);
+            registerErrorLabel.setText("As senhas não conferem!");
         } else {
             registerErrorLabel.setVisible(false);
             List<Account> contas = AccountRepository.carregarContas();

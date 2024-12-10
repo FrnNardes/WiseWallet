@@ -44,7 +44,7 @@
             </PasswordField>
             <Button fx:id="loginButton" layoutX="35.0" layoutY="253.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="44.0" prefWidth="280.0" text="Login" />
             <Button fx:id="cancelButton" layoutX="35.0" layoutY="309.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="44.0" prefWidth="280.0" text="Cancel" />
-            <Label fx:id="errorMessage" alignment="CENTER" layoutX="26.0" layoutY="220.0" prefHeight="27.0" prefWidth="298.0" text="Invalid Login. Please try again." textFill="RED" visible="false">
+            <Label fx:id="errorMessage" alignment="CENTER" layoutX="26.0" layoutY="220.0" prefHeight="27.0" prefWidth="298.0" text="Login inválido, tente novamente." textFill="RED" visible="false">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>

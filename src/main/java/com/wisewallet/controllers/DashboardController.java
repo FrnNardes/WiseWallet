@@ -10,6 +10,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import com.wisewallet.modules.UserSession;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.time.format.TextStyle;
@@ -48,7 +49,7 @@ public class DashboardController extends BaseController {
     public void initialize() {
         String username = UserSession.getInstance().getCurrentUser().getNome();
         if (username != null) {
-            usernameLabel.setText("Olá " + username + ", seja bem-vindo!");
+            usernameLabel.setText("Olá " + username + ", seja bem-vindo(a)!");
         } else {
             usernameLabel.setText("Olá, visitante!");
         }
@@ -136,22 +137,37 @@ public class DashboardController extends BaseController {
         }
     }
 
+    public void incomeExpenseViewButtonAction() {
+        try{
+            FXMLLoader loader = mainApp.showIncomeExpenseView();
+            IncomeExpenseViewController ieController = loader.getController();
+            ieController.setDashboardController(this);
+            Stage stage = (Stage) incomeLabel.getScene().getWindow();
+            stage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     // Atualiza os valores de entradas
     public void updateIncomeLabel(String income) {
-        updateLabelValue(incomeLabel, income);
+        double value = updateLabelValue(incomeLabel, income);
+        UserSession.getInstance().getCurrentUser().adicionarEntrada(value);
     }
 
     // Atualiza os valores de despesas
     public void updateExpenseLabel(String expense) {
-        updateLabelValue(expenseLabel, expense);
+        double value = updateLabelValue(expenseLabel, expense);
+        UserSession.getInstance().getCurrentUser().adicionarSaida(value);
     }
 
     // Metodo auxiliar para atualizar valores de Labels
-    private void updateLabelValue(Label label, String value) {
+    private double updateLabelValue(Label label, String value) {
         double currentValue = parseLabelValue(label);
         double newValue = currentValue + Double.parseDouble(value);
         label.setText(String.format("%.2f", newValue));
         refreshDashboard();
+        return newValue;
     }
 
     // Atualiza toda a Dashboard

@@ -1,6 +1,7 @@
 package com.wisewallet.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -10,6 +11,9 @@ public class AddIncomeController extends BaseController {
 
     @FXML
     private TextField incomeValue;
+
+    @FXML
+    private TextArea incomeTextArea;
 
     private DashboardController dashboardController;
 
@@ -24,4 +28,6 @@ public class AddIncomeController extends BaseController {
             stage.close();
         }
     }
+
+
 }
